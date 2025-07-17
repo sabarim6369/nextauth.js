@@ -15,26 +15,25 @@ export default function Home() {
   }, [status, router]);
 
   if (status === "loading") {
-    return <p>Loading...</p>;
+    return (
+      <div className="home-container">
+        <p className="loading-text">Loading...</p>
+      </div>
+    );
   }
 
   return (
-    <div style={{ textAlign: "center", marginTop: "100px" }}>
-      <h2>Welcome, {session?.user?.name}!</h2>
-      <button
-        onClick={() => signOut({ callbackUrl: "/Loginpage" })}
-        style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          backgroundColor: "#ef4444",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
-        Logout
-      </button>
+    <div className="home-container">
+      <div className="home-card">
+        <h2 className="welcome-heading">Welcome, {session?.user?.name}!</h2>
+        <p className="welcome-subtext">You have successfully signed in.</p>
+        <button
+          className="logout-button"
+          onClick={() => signOut({ callbackUrl: "/Loginpage" })}
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 }
