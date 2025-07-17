@@ -1,7 +1,7 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import "./Login.css";
+import "./login.css";
 
 export default function LoginPage() {
   const handleGitHubLogin = () => {
